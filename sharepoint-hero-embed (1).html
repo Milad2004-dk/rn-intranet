@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent; font-family: 'DM Sans', system-ui, sans-serif; overflow: hidden; }
+
+  @keyframes heroShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(2.2); opacity: 0; }
+  }
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div style="
+  background: linear-gradient(135deg,#060d19,#0a2040,#1460a0,#062030,#081828);
+  background-size: 400% 400%;
+  animation: heroShift 18s ease infinite;
+  padding: 36px 48px 44px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+">
+
+  <!-- Subtle grid texture -->
+  <div style="
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.008) 60px, rgba(255,255,255,0.008) 61px);
+  "></div>
+
+  <!-- Top row: greeting + stats -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 1;">
+
+    <!-- Greeting -->
+    <div>
+      <div id="greeting-label" style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(240,244,248,0.45);margin-bottom:6px">GOD MORGEN</div>
+      <div style="font-size:22px;font-weight:600;color:#f0f4f8;letter-spacing:-0.3px">
+        Velkommen &mdash; <span style="color:#4a9eff">3 nye nyheder i dag</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div style="
+      display: flex; gap: 24px; padding: 14px 22px;
+      background: rgba(6,13,25,0.55);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(74,158,255,0.14);
+      border-radius: 10px;
+    ">
+      <div style="text-align:center">
+        <div style="font-size:28px;font-weight:700;color:#f0f4f8;line-height:1;letter-spacing:-1px">12</div>
+        <div style="font-size:10px;color:rgba(240,244,248,0.4);text-transform:uppercase;letter-spacing:0.6px;margin-top:4px">Skibe på havet</div>
+      </div>
+      <div style="width:1px;background:rgba(74,158,255,0.14)"></div>
+      <div style="text-align:center">
+        <div style="font-size:28px;font-weight:700;color:#f0f4f8;line-height:1;letter-spacing:-1px">8</div>
+        <div style="font-size:10px;color:rgba(240,244,248,0.4);text-transform:uppercase;letter-spacing:0.6px;margin-top:4px">Aktive projekter</div>
+      </div>
+      <div style="width:1px;background:rgba(74,158,255,0.14)"></div>
+      <div style="text-align:center">
+        <div style="font-size:28px;font-weight:700;color:#f0f4f8;line-height:1;letter-spacing:-1px">55+</div>
+        <div style="font-size:10px;color:rgba(240,244,248,0.4);text-transform:uppercase;letter-spacing:0.6px;margin-top:4px">År på havet</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Featured news -->
+  <div style="position:relative;z-index:1;margin-top:32px;">
+    <div style="
+      display:inline-flex;align-items:center;gap:7px;
+      border:1px solid rgba(74,158,255,0.35);
+      background:rgba(74,158,255,0.1);
+      border-radius:20px;padding:5px 13px;margin-bottom:14px;
+    ">
+      <div style="width:5px;height:5px;border-radius:50%;background:#4a9eff;"></div>
+      <span style="font-size:10.5px;font-weight:700;letter-spacing:0.8px;color:#4a9eff;text-transform:uppercase">Operations</span>
+    </div>
+    <h1 style="font-size:34px;font-weight:700;line-height:1.2;letter-spacing:-0.5px;color:#f0f4f8;max-width:680px;text-shadow:0 2px 20px rgba(0,0,0,0.5);">
+      TSHD Viking R Completes Works at Estepona Port in Spain
+    </h1>
+    <div style="margin-top:16px;display:flex;align-items:center;gap:18px;">
+      <span style="font-size:13px;color:rgba(240,244,248,0.55)">Mette Lassen &nbsp;·&nbsp; 6. maj 2026</span>
+      <a href="#" style="
+        display:inline-flex;align-items:center;gap:6px;
+        background:rgba(255,255,255,0.1);
+        border:1px solid rgba(255,255,255,0.15);
+        border-radius:7px;padding:7px 16px;
+        font-size:13px;font-weight:600;color:#f0f4f8;text-decoration:none;
+        transition:background 0.2s;
+      " onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+        Læs mere →
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── SAFETY TICKER ── -->
+<div style="
+  height:40px;
+  background:linear-gradient(90deg,#0c3870,#1460a0,#1a70bc,#0c3870);
+  display:flex;align-items:center;overflow:hidden;
+">
+  <div id="safety-count" style="white-space:nowrap;animation:ticker 35s linear infinite;display:flex;">
+    <span style="font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.85);padding:0 36px;letter-spacing:0.2px">
+      ⚓&nbsp; Safeguarding Tomorrow &nbsp;·&nbsp; <span id="counter">312</span> dage uden tabt-tid skade &nbsp;·&nbsp; 12 skibe opererer globalt &nbsp;·&nbsp; Næste event: Navneceremoni ODIN R — 15. juli 2026 &nbsp;·&nbsp; Rohde Nielsen A/S · Kastrup &nbsp;·&nbsp;&nbsp;
+    </span>
+    <span style="font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.85);padding:0 36px;letter-spacing:0.2px">
+      ⚓&nbsp; Safeguarding Tomorrow &nbsp;·&nbsp; <span>312</span> dage uden tabt-tid skade &nbsp;·&nbsp; 12 skibe opererer globalt &nbsp;·&nbsp; Næste event: Navneceremoni ODIN R — 15. juli 2026 &nbsp;·&nbsp; Rohde Nielsen A/S · Kastrup &nbsp;·&nbsp;&nbsp;
+    </span>
+    <span style="font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.85);padding:0 36px;letter-spacing:0.2px">
+      ⚓&nbsp; Safeguarding Tomorrow &nbsp;·&nbsp; <span>312</span> dage uden tabt-tid skade &nbsp;·&nbsp; 12 skibe opererer globalt &nbsp;·&nbsp; Næste event: Navneceremoni ODIN R — 15. juli 2026 &nbsp;·&nbsp; Rohde Nielsen A/S · Kastrup &nbsp;·&nbsp;&nbsp;
+    </span>
+  </div>
+</div>
+
+<script>
+  // Time-based greeting
+  (function() {
+    var h = new Date().getHours();
+    var greet = h < 5 ? 'GOD NAT' : h < 12 ? 'GOD MORGEN' : h < 18 ? 'GOD EFTERMIDDAG' : 'GOD AFTEN';
+    var el = document.getElementById('greeting-label');
+    if (el) el.textContent = greet;
+  })();
+</script>
+
+</body>
+</html>
