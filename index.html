@@ -25,13 +25,12 @@
 <body>
 
 <!-- ══════════════════════════════════════════════════════════════════
-     HERO — TODO: erstat baggrundsbilledet nedenfor med et rigtigt foto.
-     Upload foto til Site Assets → kopier link → sæt ind i background-image.
+     HERO — rotating photo carousel. TODO: replace each slide's
+     background-image URL below with a real uploaded photo (upload to
+     Site Assets → copy link → paste into that slide's background-image).
+     Add/remove <div class="hero-slide"> blocks to change how many photos rotate.
      ══════════════════════════════════════════════════════════════════ -->
 <div style="
-  background-image: linear-gradient(to top, rgba(6,13,25,0.88) 0%, rgba(6,13,25,0.25) 45%, rgba(6,13,25,0.1) 100%), linear-gradient(135deg,#0c1c2e,#0a2a45);
-  background-size: cover;
-  background-position: center;
   padding: 36px 48px 44px;
   min-height: 380px;
   display: flex;
@@ -39,7 +38,14 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  background: #0c1c2e;
 ">
+
+  <!-- Rotating background slides -->
+  <div class="hero-slide" style="position:absolute;inset:0;opacity:1;transition:opacity 1.2s ease;background-image:linear-gradient(to top, rgba(6,13,25,0.88) 0%, rgba(6,13,25,0.25) 45%, rgba(6,13,25,0.1) 100%), linear-gradient(135deg,#0c1c2e,#0a2a45);background-size:cover;background-position:center"></div>
+  <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-image:linear-gradient(to top, rgba(6,13,25,0.88) 0%, rgba(6,13,25,0.25) 45%, rgba(6,13,25,0.1) 100%), linear-gradient(135deg,#0a2a1e,#0c3824)"></div>
+  <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-image:linear-gradient(to top, rgba(6,13,25,0.88) 0%, rgba(6,13,25,0.25) 45%, rgba(6,13,25,0.1) 100%), linear-gradient(135deg,#1a1030,#2a1860)"></div>
+  <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-image:linear-gradient(to top, rgba(6,13,25,0.88) 0%, rgba(6,13,25,0.25) 45%, rgba(6,13,25,0.1) 100%), linear-gradient(135deg,#301a08,#602c0c)"></div>
 
   <!-- Top row: greeting + stats -->
   <div style="display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 1;">
@@ -178,6 +184,18 @@
     var greet = h < 5 ? 'GOOD NIGHT' : h < 12 ? 'GOOD MORNING' : h < 18 ? 'GOOD AFTERNOON' : 'GOOD EVENING';
     var el = document.getElementById('greeting-label');
     if (el) el.textContent = greet;
+  })();
+
+  // Rotate hero background slides every 6 seconds
+  (function() {
+    var slides = document.querySelectorAll('.hero-slide');
+    if (slides.length < 2) return;
+    var active = 0;
+    setInterval(function() {
+      slides[active].style.opacity = '0';
+      active = (active + 1) % slides.length;
+      slides[active].style.opacity = '1';
+    }, 6000);
   })();
 
   // Count-up nautical miles
