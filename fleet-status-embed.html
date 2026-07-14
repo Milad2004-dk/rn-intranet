@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent; font-family: 'Lato', system-ui, sans-serif; }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(2.2); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     FLEET STATUS — TODO: update vessel list/locations/status as the
+     fleet changes. Add/remove <div class="vessel-row"> blocks freely.
+     ══════════════════════════════════════════════════════════════════ -->
+<div style="background:#fff;border:1px solid #e4eef4;border-radius:14px;padding:20px 22px;">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+    <span style="font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#767676">Fleet Status</span>
+    <!-- TODO: sæt jeres rigtige link til fuld flådeoversigt -->
+    <a href="#" style="font-size:12.5px;color:#009ada;text-decoration:none;font-weight:500">Full fleet overview →</a>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:2px;">
+
+    <div class="vessel-row" style="display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid #f0f4f7;">
+      <div style="position:relative;width:9px;height:9px;flex-shrink:0;">
+        <div style="width:9px;height:9px;border-radius:50%;background:#1a9b5c;position:relative;z-index:1"></div>
+        <div style="position:absolute;top:0;left:0;width:9px;height:9px;border-radius:50%;background:#1a9b5c;opacity:0.35;animation:pulse 2s ease infinite"></div>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:14px;font-weight:700;color:#1f3140;">TSHD Viking R</div>
+        <div style="font-size:12px;color:#767676;">Mediterranean, Spain</div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#1a9b5c;background:rgba(26,155,92,0.1);border-radius:20px;padding:4px 12px;flex-shrink:0;">Active</span>
+    </div>
+
+    <div class="vessel-row" style="display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid #f0f4f7;">
+      <div style="position:relative;width:9px;height:9px;flex-shrink:0;">
+        <div style="width:9px;height:9px;border-radius:50%;background:#1a9b5c;position:relative;z-index:1"></div>
+        <div style="position:absolute;top:0;left:0;width:9px;height:9px;border-radius:50%;background:#1a9b5c;opacity:0.35;animation:pulse 2.4s ease infinite"></div>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:14px;font-weight:700;color:#1f3140;">Njord R</div>
+        <div style="font-size:12px;color:#767676;">North Sea</div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#1a9b5c;background:rgba(26,155,92,0.1);border-radius:20px;padding:4px 12px;flex-shrink:0;">Active</span>
+    </div>
+
+    <div class="vessel-row" style="display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid #f0f4f7;">
+      <div style="position:relative;width:9px;height:9px;flex-shrink:0;">
+        <div style="width:9px;height:9px;border-radius:50%;background:#1a9b5c;position:relative;z-index:1"></div>
+        <div style="position:absolute;top:0;left:0;width:9px;height:9px;border-radius:50%;background:#1a9b5c;opacity:0.35;animation:pulse 1.8s ease infinite"></div>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:14px;font-weight:700;color:#1f3140;">ASK R</div>
+        <div style="font-size:12px;color:#767676;">Atlantic, France</div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#1a9b5c;background:rgba(26,155,92,0.1);border-radius:20px;padding:4px 12px;flex-shrink:0;">Active</span>
+    </div>
+
+    <div class="vessel-row" style="display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid #f0f4f7;">
+      <div style="position:relative;width:9px;height:9px;flex-shrink:0;">
+        <div style="width:9px;height:9px;border-radius:50%;background:#1a9b5c;position:relative;z-index:1"></div>
+        <div style="position:absolute;top:0;left:0;width:9px;height:9px;border-radius:50%;background:#1a9b5c;opacity:0.35;animation:pulse 2.8s ease infinite"></div>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:14px;font-weight:700;color:#1f3140;">Embla R</div>
+        <div style="font-size:12px;color:#767676;">Australia</div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#1a9b5c;background:rgba(26,155,92,0.1);border-radius:20px;padding:4px 12px;flex-shrink:0;">Active</span>
+    </div>
+
+    <div class="vessel-row" style="display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid #f0f4f7;">
+      <div style="position:relative;width:9px;height:9px;flex-shrink:0;">
+        <div style="width:9px;height:9px;border-radius:50%;background:#0996cf;position:relative;z-index:1"></div>
+        <div style="position:absolute;top:0;left:0;width:9px;height:9px;border-radius:50%;background:#0996cf;opacity:0.35;animation:pulse 3.5s ease infinite"></div>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:14px;font-weight:700;color:#1f3140;">Grane R</div>
+        <div style="font-size:12px;color:#767676;">Hanstholm, DK</div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#0996cf;background:rgba(9,150,207,0.1);border-radius:20px;padding:4px 12px;flex-shrink:0;">In port</span>
+    </div>
+
+    <div class="vessel-row" style="display:flex;align-items:center;gap:12px;padding:10px 4px;">
+      <div style="position:relative;width:9px;height:9px;flex-shrink:0;">
+        <div style="width:9px;height:9px;border-radius:50%;background:#0996cf;position:relative;z-index:1"></div>
+        <div style="position:absolute;top:0;left:0;width:9px;height:9px;border-radius:50%;background:#0996cf;opacity:0.35;animation:pulse 3.5s ease infinite"></div>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:14px;font-weight:700;color:#1f3140;">Hermod R</div>
+        <div style="font-size:12px;color:#767676;">Esbjerg, DK</div>
+      </div>
+      <span style="font-size:11px;font-weight:700;color:#0996cf;background:rgba(9,150,207,0.1);border-radius:20px;padding:4px 12px;flex-shrink:0;">In port</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
