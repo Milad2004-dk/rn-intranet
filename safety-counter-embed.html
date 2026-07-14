@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent; font-family: 'Lato', system-ui, sans-serif; }
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     SAFETY COUNTER — TODO: update daysSinceIncident to the real number
+     of days since the last recorded incident. Update it whenever it changes.
+     ══════════════════════════════════════════════════════════════════ -->
+<div style="background:linear-gradient(135deg,#0c2a1e,#0a3a28);border-radius:14px;padding:26px 28px;display:flex;align-items:center;gap:24px;">
+  <div id="safety-days" style="font-size:46px;font-weight:900;line-height:1;letter-spacing:-2px;color:#3ee08a;font-variant-numeric:tabular-nums;animation:countUp 0.6s ease forwards">0</div>
+  <div style="flex:1">
+    <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px">Days without a safety incident</div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.6)">Across the entire fleet — every voyage counts</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;background:rgba(62,224,138,0.14);border:1px solid rgba(62,224,138,0.3);border-radius:20px;padding:8px 18px;flex-shrink:0">
+    <span style="font-size:12px;font-weight:700;color:#3ee08a;letter-spacing:0.4px">SAFETY FIRST</span>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var el = document.getElementById('safety-days');
+    if (!el) return;
+    // TODO: update this number whenever it changes
+    var target = 214, dur = 1800, t0 = Date.now();
+    function tick() {
+      var p = Math.min((Date.now() - t0) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(e * target).toLocaleString('en-US');
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+</script>
+
+</body>
+</html>
