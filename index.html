@@ -1,24 +1,16 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { background: transparent; font-family: 'Lato', system-ui, sans-serif; overflow: hidden; }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50%       { transform: scale(2.2); opacity: 0; }
-  }
+  html, body { background: transparent; font-family: 'Lato', system-ui, sans-serif; overflow: hidden; height: auto; }
+  body { display: block; }
   @keyframes ticker {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
-  }
-  @keyframes countUp {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
   }
 </style>
 </head>
@@ -126,57 +118,6 @@
   </div>
 </div>
 
-<!-- ══ SØMIL SEJLET I ÅR — fact box ══ -->
-<div style="background:linear-gradient(135deg,#e6f7fd,#d6f0fb);border:1px solid #b3e4f5;border-radius:14px;padding:22px 28px;display:flex;align-items:center;gap:24px;margin:20px 0;">
-  <div id="nautical-miles" style="font-size:46px;font-weight:900;line-height:1;letter-spacing:-2px;color:#009ada;font-variant-numeric:tabular-nums;animation:countUp 0.6s ease forwards">0</div>
-  <div style="flex:1">
-    <div style="font-size:16px;font-weight:700;color:#1f3140;margin-bottom:4px">Nautical miles sailed this year</div>
-    <div style="font-size:13px;color:#3d7a95">Whole fleet — from the North Sea to Australia</div>
-  </div>
-  <div style="display:flex;align-items:center;gap:8px;background:rgba(0,154,218,0.1);border:1px solid rgba(0,154,218,0.25);border-radius:20px;padding:8px 18px;flex-shrink:0">
-    <div style="position:relative;width:8px;height:8px">
-      <div style="width:8px;height:8px;border-radius:50%;background:#009ada;position:relative;z-index:1"></div>
-      <div style="position:absolute;top:0;left:0;width:8px;height:8px;border-radius:50%;background:#009ada;opacity:0.35;animation:pulse 2s ease infinite"></div>
-    </div>
-    <span style="font-size:12px;font-weight:700;color:#009ada;letter-spacing:0.4px">LIVE FLEET</span>
-  </div>
-</div>
-
-<!-- ══ BANNER CTAs — TODO: sæt jeres rigtige links + upload rn-logo.jpg til Site Assets, opdater src ══ -->
-<div style="display:flex;flex-direction:column;gap:14px">
-  <a href="#" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#04324a,#0089c4 60%,#3dc6ec);border-radius:16px;padding:22px 28px;display:flex;align-items:center;gap:18px;text-decoration:none;">
-    <div style="position:absolute;top:-30px;right:-10px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,0.12);pointer-events:none"></div>
-    <div style="width:52px;height:52px;border-radius:12px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,0.2);position:relative;z-index:1;background:#009ada;display:flex;align-items:center;justify-content:center">
-      <!-- TODO: erstat med <img src="LINK_TIL_RN_LOGO_I_SITE_ASSETS" style="width:100%;height:100%;object-fit:cover"> -->
-      <span style="color:#fff;font-weight:900;font-size:20px">RN</span>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;align-self:stretch;justify-content:center;position:relative;z-index:1">
-      <div style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
-      <div style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
-      <div style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
-    </div>
-    <div style="flex:1;position:relative;z-index:1">
-      <div style="font-size:22px;font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.3px;text-transform:uppercase">Latest<br>Newsletter</div>
-    </div>
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="position:relative;z-index:1;flex-shrink:0;align-self:flex-start"><path d="M4 14L14 4M14 4H7M14 4V11" stroke="rgba(255,255,255,0.8)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-  <a href="#" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#04324a,#0089c4 60%,#3dc6ec);border-radius:16px;padding:22px 28px;display:flex;align-items:center;gap:18px;text-decoration:none;">
-    <div style="position:absolute;top:-30px;right:-10px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,0.12);pointer-events:none"></div>
-    <div style="width:52px;height:52px;border-radius:12px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,0.2);position:relative;z-index:1;background:#009ada;display:flex;align-items:center;justify-content:center">
-      <span style="color:#fff;font-weight:900;font-size:20px">RN</span>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:5px;flex-shrink:0;align-self:stretch;justify-content:center;position:relative;z-index:1">
-      <div style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
-      <div style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
-      <div style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.6)"></div>
-    </div>
-    <div style="flex:1;position:relative;z-index:1">
-      <div style="font-size:22px;font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.3px;text-transform:uppercase">Fleet<br>Overview</div>
-    </div>
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="position:relative;z-index:1;flex-shrink:0;align-self:flex-start"><path d="M4 14L14 4M14 4H7M14 4V11" stroke="rgba(255,255,255,0.8)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-</div>
-
 <script>
   // Time-based greeting
   (function() {
@@ -196,20 +137,6 @@
       active = (active + 1) % slides.length;
       slides[active].style.opacity = '1';
     }, 6000);
-  })();
-
-  // Count-up nautical miles
-  (function() {
-    var el = document.getElementById('nautical-miles');
-    if (!el) return;
-    var target = 148520, dur = 2200, t0 = Date.now();
-    function tick() {
-      var p = Math.min((Date.now() - t0) / dur, 1);
-      var e = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(e * target).toLocaleString('en-US');
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
   })();
 </script>
 
