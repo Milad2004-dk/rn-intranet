@@ -23,8 +23,8 @@
      Add/remove <div class="hero-slide"> blocks to change how many photos rotate.
      ══════════════════════════════════════════════════════════════════ -->
 <div style="
-  padding: 36px 48px 44px;
-  min-height: 380px;
+  padding: 36px 48px 40px;
+  min-height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -33,11 +33,9 @@
   background: #0c1c2e;
 ">
 
-  <!-- Rotating background slides -->
-  <div class="hero-slide" style="position:absolute;inset:0;opacity:1;transition:opacity 1.2s ease;background-image:linear-gradient(to top, rgba(6,13,25,0.88) 0%, rgba(6,13,25,0.25) 45%, rgba(6,13,25,0.1) 100%), linear-gradient(135deg,#0c1c2e,#0a2a45);background-size:cover;background-position:center"></div>
-  <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-image:linear-gradient(to top, rgba(6,13,25,0.88) 0%, rgba(6,13,25,0.25) 45%, rgba(6,13,25,0.1) 100%), linear-gradient(135deg,#0a2a1e,#0c3824)"></div>
-  <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-image:linear-gradient(to top, rgba(6,13,25,0.88) 0%, rgba(6,13,25,0.25) 45%, rgba(6,13,25,0.1) 100%), linear-gradient(135deg,#1a1030,#2a1860)"></div>
-  <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-image:linear-gradient(to top, rgba(6,13,25,0.88) 0%, rgba(6,13,25,0.25) 45%, rgba(6,13,25,0.1) 100%), linear-gradient(135deg,#301a08,#602c0c)"></div>
+  <!-- Static gradient background — no photo dependency, always looks clean -->
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at top right, #123b5e 0%, #0c1c2e 55%, #081524 100%)"></div>
+  <div style="position:absolute;inset:0;opacity:0.5;background-image:repeating-linear-gradient(115deg, transparent 0px, transparent 60px, rgba(255,255,255,0.03) 60px, rgba(255,255,255,0.03) 61px)"></div>
 
   <!-- Top row: greeting + stats -->
   <div style="display: flex; justify-content: space-between; align-items: flex-start; position: relative; z-index: 1;">
@@ -68,34 +66,16 @@
 
   </div>
 
-  <!-- Featured news -->
-  <div style="position:relative;z-index:1;margin-top:28px;">
-    <div style="
-      display:inline-flex;align-items:center;gap:7px;
-      background:rgba(255,255,255,0.14);backdrop-filter:blur(6px);
-      border-radius:20px;padding:5px 13px;margin-bottom:14px;
-    ">
-      <div style="width:5px;height:5px;border-radius:50%;background:#7ec8ff;"></div>
-      <span style="font-size:10.5px;font-weight:700;letter-spacing:0.8px;color:#eaf4ff;text-transform:uppercase">Operations</span>
+  <!-- Center brand statement — fills the empty middle space -->
+  <div style="position:relative;z-index:1;text-align:center;padding:20px 0;">
+    <div style="font-size:26px;font-weight:700;color:#fff;letter-spacing:0.5px;text-shadow:0 2px 20px rgba(0,0,0,0.4)">
+      Safeguarding Tomorrow
     </div>
-    <h1 style="font-size:32px;font-weight:700;line-height:1.2;letter-spacing:-0.5px;color:#fff;max-width:680px;text-shadow:0 2px 20px rgba(0,0,0,0.5);">
-      TSHD Viking R Completes Works at Estepona Port in Spain
-    </h1>
-    <div style="margin-top:16px;display:flex;align-items:center;gap:18px;">
-      <span style="font-size:13px;color:rgba(255,255,255,0.65)">Mette Lassen &nbsp;·&nbsp; 6 May 2026</span>
-      <!-- TODO: sæt jeres rigtige link til nyheden -->
-      <a href="#" style="
-        display:inline-flex;align-items:center;gap:6px;
-        background:rgba(255,255,255,0.16);
-        border:1px solid rgba(255,255,255,0.25);
-        border-radius:7px;padding:7px 16px;
-        font-size:13px;font-weight:600;color:#fff;text-decoration:none;
-        transition:background 0.2s;
-      " onmouseover="this.style.background='rgba(255,255,255,0.28)'" onmouseout="this.style.background='rgba(255,255,255,0.16)'">
-        Read more →
-      </a>
+    <div style="font-size:13px;color:rgba(255,255,255,0.55);margin-top:6px;letter-spacing:0.3px">
+      Marine construction &amp; dredging since 1968
     </div>
   </div>
+
 
 </div>
 
@@ -127,17 +107,7 @@
     if (el) el.textContent = greet;
   })();
 
-  // Rotate hero background slides every 6 seconds
-  (function() {
-    var slides = document.querySelectorAll('.hero-slide');
-    if (slides.length < 2) return;
-    var active = 0;
-    setInterval(function() {
-      slides[active].style.opacity = '0';
-      active = (active + 1) % slides.length;
-      slides[active].style.opacity = '1';
-    }, 6000);
-  })();
+  // Live animated counter for "years at sea" style stats could go here later.
 </script>
 
 </body>
